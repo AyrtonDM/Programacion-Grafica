@@ -19,42 +19,42 @@ namespace Tarea1
         private int _elementBufferObject;
         private int _shaderProgram;
 
-        // Define vertices for a stylized 3D "T"
+        // Define vertices para estilizar la "T" 3D
         private readonly float[] _vertices =
         {
-        // Front face of the T (Top horizontal part)
-        -0.5f,  0.8f,  0.5f, 1.0f, 0.752f, 0.796f, // Top-left
-         0.5f,  0.8f,  0.5f, 1.0f, 0.752f, 0.796f, // Top-right
-         0.5f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, // Bottom-right
-        -0.5f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, // Bottom-left 
+        // Cara frontal de la T (parte horizontal de arriba)
+        -0.5f,  0.8f,  0.5f, 1.0f, 0.752f, 0.796f, // Superior izquierda
+         0.5f,  0.8f,  0.5f, 1.0f, 0.752f, 0.796f, // Superior derecha
+         0.5f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, // fondo derecha
+        -0.5f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, // fondo izquiera
 
-        // Back face of the T (Top horizontal part)
-        -0.5f,  0.8f, 0.1f, 0.8f, 0.5f, 0.6f, // Top-left
-         0.5f,  0.8f, 0.1f, 0.8f, 0.5f, 0.6f, // Top-right
-         0.5f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f, // Bottom-right
-        -0.5f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f, // Bottom-left
+        // Cara trasera de la T (parte horizontal de arriba)
+        -0.5f,  0.8f, 0.1f, 0.8f, 0.5f, 0.6f, 
+         0.5f,  0.8f, 0.1f, 0.8f, 0.5f, 0.6f, 
+         0.5f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f, 
+        -0.5f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f, 
 
-        // Front face of the T (Vertical part)
-        -0.2f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, // Top-left
-         0.2f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, // Top-right
-         0.2f, -0.6f,  0.5f, 1.0f, 0.752f, 0.796f, // Bottom-right
-        -0.2f, -0.6f,  0.5f, 1.0f, 0.752f, 0.796f, // Bottom-left
+        // Cara frontal de la T (parte vertical)
+        -0.2f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, 
+         0.2f,  0.4f,  0.5f, 1.0f, 0.752f, 0.796f, 
+         0.2f, -0.6f,  0.5f, 1.0f, 0.752f, 0.796f, 
+        -0.2f, -0.6f,  0.5f, 1.0f, 0.752f, 0.796f, 
 
-        // Back face of the T (Vertical part)
-        -0.2f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f,  // Top-left
-         0.2f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f, // Top-right
-         0.2f, -0.6f, 0.1f, 0.8f, 0.5f, 0.6f, // Bottom-right
-        -0.2f, -0.6f, 0.1f, 0.8f, 0.5f, 0.6f, // Bottom-left
+        // Cara trasera de la T (parte vertical)
+        -0.2f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f,
+         0.2f,  0.4f, 0.1f, 0.8f, 0.5f, 0.6f, 
+         0.2f, -0.6f, 0.1f, 0.8f, 0.5f, 0.6f, 
+        -0.2f, -0.6f, 0.1f, 0.8f, 0.5f, 0.6f,
         
         
 
-        // Roof of the T
+        // Techo de la T
         //-0.5f,  0.8f, 0.1f, 1.0f, 1.0f, 0.0f,
         // 0.5f,  0.8f, 0.1f, 1.0f, 1.0f, 0.0f,
         // 0.5f,  0.8f,  0.5f, 0.4f, 0.0f, 0.0f,
         //-0.5f,  0.8f,  0.5f, 0.5f, 0.0f, 0.0f,
 
-        ////Floor of the T
+        ////Suelo de la T
         //-0.2f, -0.6f, 0.1f, 1.0f, 1.0f, 0.0f,
         // 0.2f, -0.6f, 0.1f, 1.0f, 1.0f, 0.0f,
         // 0.2f, -0.6f,  0.5f, 0.4f, 0.0f, 0.0f,
@@ -63,15 +63,15 @@ namespace Tarea1
         
     };
 
-        private readonly uint[] _indices =
+        private readonly uint[] _indices = //Orden y forma de conectar las esquinas con triangulos
         {
-        // Top horizontal part
-        0, 1, 2, 2, 3, 0, // Front face
-        4, 5, 6, 6, 7, 4, // Back face
+        // Parte horizaontales
+        0, 1, 2, 2, 3, 0, 
+        4, 5, 6, 6, 7, 4, 
 
-        // Vertical part
-        8, 9, 10, 10, 11, 8, // Front face
-        12, 13, 14, 14, 15, 12, // Back face
+        // Parte verticales
+        8, 9, 10, 10, 11, 8, 
+        12, 13, 14, 14, 15, 12, 
 
         0, 4, 5, 5, 1,0,
         11, 10, 14, 14, 15, 11,
@@ -85,7 +85,7 @@ namespace Tarea1
         9, 2, 6, 6, 13, 9,
         3, 8, 12, 12, 7, 3, 
 
-        //Roof and floor
+        //Techo y suelo
         //16, 17, 18, 18, 19, 16,
         //20, 21, 22, 22, 23, 20,
 
