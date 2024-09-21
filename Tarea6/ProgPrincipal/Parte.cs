@@ -49,6 +49,9 @@ namespace ProgPrincipal
 
         public void Escalar(float factor)
         {
+             Centro.x = Centro.x * factor;
+             Centro.y = Centro.y * factor;
+             Centro.z = Centro.z * factor; 
             foreach (Poligono valor in poligonos.Values)
             {
                 valor.Escalar(factor);
