@@ -188,9 +188,8 @@ public class Graficador : GameWindow
 
         //DrawCube();
         plano.Dibujar();
-        //escenario.Dibujar();
-        //escenario.Rotar(1f, 0f, 0f);
-        T.Dibujar();
+        escenario.Dibujar();
+        //T.Dibujar();
         //carafrontal.Rotar(1f, 0f, 0f);
         //carafrontal.Dibujar();
         //cuboh.Dibujar();
